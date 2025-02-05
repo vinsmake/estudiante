@@ -1,7 +1,8 @@
 // Función para actualizar el valor del rango en tiempo real
 function actualizarValor(valor) {
-    document.getElementById('valor-tiempo').textContent = " Tiempo seleccionado: "+ valor + " h";
+    document.getElementById('valor-tiempo').textContent = `Tiempo seleccionado: ${valor} h`;
 }
+
 
 // Función para manejar el clic en el botón
 function generarSimulacion() {
