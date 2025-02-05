@@ -1,0 +1,374 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+
+main {
+  display: grid;
+  grid-template-columns: 4fr 2fr; /* Dos columnas */
+  grid-template-rows: auto auto auto; /* Tres filas */
+  gap: 20px;
+  padding: 20px;
+}
+
+
+
+/* Contenedor principal de la sección */
+/* Contenedor principal de la sección */
+#three-container {
+  grid-column: 1 / 2; /* Primera columna */
+  grid-row: 1 / 4; /* Ocupa las tres filas */
+  border: 3px solid #32ef28;
+  background-color: #252525; /* Fondo más oscuro para mayor contraste */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 12px; /* Tamaño de fuente más moderado */
+  height: 560px; /* Alto del contenedor */
+  overflow: hidden; /* Evita que el contenido exceda los límites */
+  border-radius: 10px; /* Bordes redondeados */
+  position: relative; /* Asegura que los elementos hijos puedan posicionarse */
+}
+
+/* Propiedades específicas del visor */
+#three-container .viewer {
+  width: 100%; /* Tamaño relativo al contenedor */
+  height: 100%;
+  left: 0%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  position:absolute; /* Posicionamiento dentro del contenedor */
+  z-index: 1; /* Asegura que esté por encima de otros elementos si es necesario */
+}
+
+/* Placeholder */
+.placeholder {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 0.5em;
+  background: #252525;
+  padding: 2em;
+  text-align: center;
+}
+
+.placeholder p {
+  font-size: 1.2rem;
+  color: #999;
+}
+
+/* Ejes */
+.axes {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  padding: 0px;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Interfaz gráfica */
+.gui-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  font-size: small;
+}
+
+.gui-wrap > .main {
+  pointer-events: all;
+  max-height: 100%;
+  overflow: auto;
+  font-size: small;
+}
+
+.dg main{
+  font-size: 12px;
+}
+
+.dg li.gui-stats:not(.folder) {
+  height: auto;
+  font-size: small;
+}
+
+/* Contenedor interno para centrar elementos */
+.wrap {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 560px; /* Alto del contenedor */
+}
+
+/* Zona de carga */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%; /* Tamaño relativo */
+  max-width: fit-content;
+  transition: background-color 0.3s ease;
+}
+
+/* Botón de carga */
+.upload-btn {
+  margin-top: 15px;
+}
+
+.upload-btn label {
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+
+.upload-btn svg {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+/* Spinner de carga */
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px;
+  background-color: #333;
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+/* Ajuste de texto */
+#three-container span {
+  font-size: 10px;
+  color: #ccc;
+}
+
+#three-container canvas {
+  width: 100%; /* Canvas ocupa todo el ancho del contenedor */
+  height: 100%; /* Canvas ocupa todo el alto del contenedor */
+}
+
+/* Sección de imagen */
+#imagen {
+  grid-column: 2 / 3; /* Segunda columna */
+  grid-row: 1 / 2; /* Primera fila */
+  text-align: left; /* Alinea el contenido a la izquierda */
+  border: 1px solid lightgray;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; /* Espacio entre imagen y los íconos */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+#imagen img {
+  max-width: 100%;
+  height: 120px;
+  margin-right: 10px; /* Espacio entre la imagen y los íconos */
+}
+
+.icons {
+  display: flex;
+  flex-direction: column; /* Coloca los íconos en columna */
+  justify-content: center;
+  align-items: center;
+}
+
+.icons i {
+  font-size: 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* Sección de video */
+#video {
+  grid-column: 2 / 3; /* Segunda columna */
+  grid-row: 2 / 3; /* Segunda fila */
+  text-align: left; /* Alinea el contenido a la izquierda */
+  border: 1px solid lightgray;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; /* Espacio entre video y los íconos */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+#video video {
+  max-width: 100%;
+  height: 120px;
+  margin-right: 10px; /* Espacio entre el video y los íconos */
+}
+
+
+/* Íconos */
+.icons i:hover {
+  color: #32ef28; /* Cambia el color de los íconos al pasar el mouse */
+}
+
+  
+  /* Sección de simulación */
+  #simulación {
+    border: 1px solid lightgray;
+    grid-column: 2 / 3; /* Segunda columna */
+    grid-row: 3 / 4; /* Tercera fila */
+    text-align: center;
+    padding: 10px;
+  }
+  
+  #simulación label {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  #simulación input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  #simulación button {
+    background-color: #32ef28;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size:larger;
+    border-radius: 5px;
+  }
+  
+  #simulación button:hover {
+    background-color: #218838;
+  }
+
+/* Estilo para el modal */
+.modal {
+  display: none; /* Inicialmente está oculto */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(120, 111, 111, 0.5); /* Fondo semi-transparente */
+}
+
+/* Contenido del modal */
+#modal-contenido {
+  position: relative;
+  margin: 5% auto;
+  background-color: white;
+  padding: 20px;
+  width: 80%;
+  max-width: 900px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px; /* Bordes redondeados */
+  text-align: center;
+}
+
+/* Botones en el modal */
+#modal-actions {
+  margin-top: 10px;
+}
+
+#modal-actions button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-descargar {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+}
+
+#btn-descargar:hover {
+  background-color: #45a049; /* Verde oscuro */
+}
+
+#btn-cerrar {
+  background-color: #f44336; /* Rojo */
+  color: white;
+}
+
+#btn-cerrar:hover {
+  background-color: #d32f2f; /* Rojo oscuro */
+}
+
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  main {
+      grid-template-columns: 1fr; /* Una columna en tablets */
+  }
+
+  #three-container {
+      height: auto;
+      padding: 10px;
+  }
+
+  #imagen, #video, #simulación {
+      grid-column: 1 / 2; /* Ajustar a una sola columna */
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+      padding: 10px;
+  }
+
+  #three-container {
+      font-size: 10px;
+  }
+
+  #modal-contenido {
+      width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+      gap: 10px;
+  }
+
+  #three-container {
+      height: auto;
+      font-size: 9px;
+  }
+
+  #imagen img, #video video {
+      height: auto;
+  }
+
+  .icons i {
+      font-size: 16px;
+  }
+}

@@ -1,46 +1,90 @@
-<!doctype html>
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>glTF Viewer</title>
-	<meta
-		name="viewport"
-		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-	/>
-	<meta name="author" content="Don McCurdy" />
-	<meta name="description" content="Drag-and-drop preview tool for glTF 2.0 3D models." />
-	<link rel="canonical" href="https://gltf-viewer.donmccurdy.com/" />
-	<link rel="shortcut icon" href="/favicon.ico" />
-	<link rel="stylesheet" href="style.css" />
-	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" />
-	<script defer type="module" src="src/app.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<link>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/images/logo.png" type="image/png">
+  <title>Proyecto Crecimiento de Bacteria E. coli</title>
+  <link rel="stylesheet" href="css/styleIndex.css">
+  <script defer src="/models/render.js"></script>
 </head>
 <body>
-	<header>
-		<h1><a href="/">glTF Viewer</a></h1>
-	</header>
-	<main class="wrap">
-		<div class="dropzone">
-			<div class="placeholder">
-				<p>Drag glTF 2.0 file or folder here</p>
-			</div>
-			<div class="upload-btn">
-				<input type="file" name="file-input[]" id="file-input" multiple="" />
-				<label for="file-input">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="17"
-						viewBox="0 0 20 17"
-					>
-						<path
-							d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
-						></path>
-					</svg>
-					<span>Choose file</span>
-				</label>
-			</div>
-		</div>
-		<div class="spinner"></div>
-	</main>
+      <!-- Header -->
+      <header>
+        <div id="header">Encabezado</div>
+    </header>
+    <main>
+      <section id="enlaces-relacionados">
+        <h2>Enlaces Relacionados</h2>
+        <ul>
+          <li><a href="http://cici.cucea.udg.mx/" target="_blank">Centro de Innovación de Ciudades Inteligentes - Universidad de Guadalajara</a></li>
+          <li><a href="http://cads.cgti.udg.mx/" target="_blank">Centro de Análisis de Datos y Supercómputo - Universidad de Guadalajara</a></li>
+          <li><a href="https://www.espoch.edu.ec/" target="_blank">Escuela Superior Politécnica de Chimborazo</a></li>
+        </ul>
+      </section>
+      <section id="sobre-nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>Este proyecto se desarrolló en el marco de un convenio de colaboración entre la Escuela Superior Politécnica de Chimborazo (ESPOCH) en Ecuador y la Universidad de Guadalajara (UdeG) en México. Este acuerdo permitió el acceso a recursos tecnológicos avanzados y al valioso apoyo de académicos especializados de ambas instituciones, lo que fue fundamental para el éxito del proyecto. <br> <br>
+          La iniciativa surgió como una propuesta innovadora para abordar uno de los desafíos más relevantes en microbiología: la simulación realista del crecimiento de la bacteria Escherichia coli (E. coli). <br> <br>
+          El resultado fue el desarrollo de una simulación tridimensional (3D) que funciona como una plataforma in silico. Esta herramienta no solo complementa el trabajo experimental de los investigadores al ofrecer un entorno virtual para modelar el comportamiento de E. coli, sino que también representa un recurso pedagógico de gran valor para estudiantes de microbiología. <br> <br>
+          Este proyecto no solo fortalece la cooperación académica internacional, sino que también posiciona a ambas instituciones como referentes en el desarrollo de herramientas tecnológicas aplicadas a la investigación científica y la educación. </p>
+          <h2>¿Cómo Generar la Simulación?</h2>
+          <p>Para generar una simulación se debe escoger una hora en la que se visualizará el resultado del crecimiento de la bacteria E. coli. En la parte derecha de la pantalla se tiene un elemento (slider) para escoger la hora que puede ser en un intervalo entre 1 a 24. Después se hace clic en el botón de Generar simulación y se mostrarán los resultados en una nueva ventana.</p>
+        </section>
+      <section id="simulacion">
+        <div id="imagen-bacteria">
+          <img src="/images/logo.png" alt="Imagen PNG de la bacteria E. coli">
+          <p>Imagen PNG de la bacteria E.coli obtenida de la simulación 3D </p>
+        </div>
+        <div id="control-simulacion">
+          <label for="tiempo">TIEMPO EN HORAS</label>
+          <input 
+          type="range" 
+          id="tiempo" 
+          name="tiempo" 
+          min="1" 
+          max="24" 
+          value="1" 
+          oninput="actualizarValor(this.value)">
+          <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const tiempoInput = document.getElementById('tiempo');
+                const valorTiempoSpan = document.getElementById('valor-tiempo');
+        
+                // Recupera el último valor almacenado o usa el valor por defecto '1'
+                const ultimoValor = localStorage.getItem('valorSeleccionado') || '1';
+                tiempoInput.value = ultimoValor;
+                valorTiempoSpan.textContent = `${ultimoValor} horas`; // Actualiza el span con el valor almacenado
+        
+                // Actualiza el valor dinámicamente cuando se cambie el input
+                tiempoInput.addEventListener('input', (event) => {
+                    actualizarValor(event.target.value);
+                });
+        
+                // Guarda el valor seleccionado cuando se suelta el control deslizante
+                tiempoInput.addEventListener('change', (event) => {
+                    localStorage.setItem('valorSeleccionado', event.target.value);
+                });
+            });
+        
+            // Función para actualizar el span con el nuevo valor
+            function actualizarValor(valor) {
+                document.getElementById('valor-tiempo').textContent = `${valor} horas`;
+            }
+        </script>
+        <span id="valor-tiempo">1 horas</span> <!-- Valor inicial por defecto -->
+        <button id="generar-simulacion" onclick="generarSimulacion()">Generar Simulación</button>
+        </div>        
+      </section>
+      <section id="como-generar">
+<!--         <h2>¿CÓMO GENERAR LA SIMULACIÓN?</h2>
+        <p>Para generar una simulación se debe escoger una hora en la que se visualizará el resultado del crecimiento de la bacteria E. coli. En la parte derecha de la pantalla se tiene un elemento (slider) para escoger la hora que puede ser en un intervalo entre 1 a 24. Después se hace clic en el botón de Generar simulación y se mostrarán los resultados en una nueva ventana.</p>
+       --></section>
+    </main>
+    <script src="models/tiempo.js"></script>
+    <!-- Footer -->
+    <footer>
+      <div id="footer"></div>
+  </footer>
 </body>
+</html>

@@ -1,0 +1,71 @@
+main {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1.2fr; /* Tres columnas  */
+    grid-template-rows: auto auto; /* Dos filas */
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+  
+  #enlaces-relacionados {
+    grid-column: 1 / 2; /* Primera columna */
+    grid-row: 1 / 2; /* Primera fila */
+  }
+  
+  #sobre-nosotros {
+    grid-column: 2 / 3; /* Segunda columna */
+    grid-row: 1 / 2; /* Primera fila */
+    text-align: justify;
+  }
+  
+  #imagen-bacteria {
+    padding-top: 25px;
+    grid-column: 3 / 4; /* Tercera columna */
+    grid-row: 1 / 2; /* Primera fila */
+    text-align: center;
+  }
+  
+  #imagen-bacteria img {
+    max-width: 100%;
+    border: 2px solid #32ef28;
+    width: 200px;
+  }
+
+  #imagen-bacteria p {
+    width: 200px;
+    margin: 0 auto; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto dentro del párrafo */
+    padding-bottom: 40px;
+}
+
+  #control-simulacion {
+    grid-column: 2 / 3; /* Segunda columna */
+    grid-row: 2 / 3; /* Segunda fila */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #control-simulacion input[type="range"] {
+    width: 200px;
+  }
+  
+  #control-simulacion button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #32ef28;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: larger;
+  }
+
+  #control-simulacion button:hover {
+    background-color: #218838;
+  }
+  #como-generar {
+    grid-column: 2 / 3; /* Segunda columna */
+    grid-row: 2 / 2; /* segunda fila */
+    text-align: justify;
+  }

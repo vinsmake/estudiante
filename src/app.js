@@ -1,9 +1,8 @@
-import WebGL from 'three/addons/capabilities/WebGL.js';
-import { Viewer } from './viewer.js';
-import { SimpleDropzone } from 'simple-dropzone';
-import { Validator } from './validator.js';
-import { Footer } from './components/footer';
 import queryString from 'query-string';
+import { SimpleDropzone } from 'simple-dropzone';
+import WebGL from 'three/addons/capabilities/WebGL.js';
+import { Validator } from './validator.js';
+import { Viewer } from './viewer.js';
 
 window.VIEWER = {};
 
@@ -20,9 +19,90 @@ class App {
 	 */
 	constructor(el, location) {
 		const hash = location.hash ? queryString.parse(location.hash) : {};
+		const horaSimulacion = localStorage.getItem("horaSimulacion");
+		let model;
+
+		switch (horaSimulacion) {
+			case '1':
+				model = '/models/1h.glb';
+				break;
+			case '2':
+				model = '/models/2h.glb';
+				break;
+			case '3':
+				model = '/models/3h.glb';
+				break;
+			case '4':
+				model = '/models/4h.glb';
+				break;
+			case '5':
+				model = '/models/5h.glb';
+				break;
+			case '6':
+				model = '/models/6h.glb';
+				break;
+			case '7':
+				model = '/models/7h.glb';
+				break;
+			case '8':
+				model = '/models/8h.glb';
+				break;
+			case '9':
+				model = '/models/9h.glb';
+				break;
+			case '10':
+				model = '/models/10h.glb';
+				break;
+			case '11':
+				model = '/models/11h.glb';
+				break;
+			case '12':
+				model = '/models/12h.glb';
+				break;
+			case '13':
+				model = '/models/13h.glb';
+				break;
+			case '14':
+				model = '/models/14h.glb';
+				break;
+			case '15':
+				model = '/models/15h.glb';
+				break;
+			case '16':
+				model = '/models/16h.glb';
+				break;
+			case '17':
+				model = '/models/17h.glb';
+				break;
+			case '18':
+				model = '/models/18h.glb';
+				break;
+			case '19':
+				model = '/models/19h.glb';
+				break;
+			case '20':
+				model = '/models/20h.glb';
+				break;
+			case '21':
+				model = '/models/21h.glb';
+				break;
+			case '22':
+				model = '/models/22h.glb';
+				break;
+			case '23':
+				model = '/models/23h.glb';
+				break;
+			case '24':
+				model = '/models/24h.glb';
+				break;
+			default:
+				model = 'models/default.glb';
+				alert("Error inesperado. Intentelo de nuevo");
+		}
+
 		this.options = {
 			kiosk: Boolean(hash.kiosk),
-			model: hash.model || '',
+			model: hash.model || model,
 			preset: hash.preset || '',
 			cameraPosition: hash.cameraPosition ? hash.cameraPosition.split(',').map(Number) : null,
 		};
@@ -35,7 +115,7 @@ class App {
 		this.inputEl = el.querySelector('#file-input');
 		this.validator = new Validator(el);
 
-		this.createDropzone();
+		//this.createDropzone();
 		this.hideSpinner();
 
 		const options = this.options;
@@ -45,7 +125,7 @@ class App {
 			headerEl.style.display = 'none';
 		}
 
-		if (options.model) {
+	 	if (options.model) {
 			this.view(options.model, '', new Map());
 		}
 	}
@@ -150,7 +230,6 @@ class App {
 	}
 }
 
-document.body.innerHTML += Footer();
 
 document.addEventListener('DOMContentLoaded', () => {
 	const app = new App(document.body, location);

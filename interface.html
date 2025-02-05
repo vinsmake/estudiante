@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="author" content="HUISHA & INCA" />
+  <link rel="canonical" href="https://gltf-viewer.donmccurdy.com/" />
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <title>Crecimiento bacteria E. coli</title>
+  <link rel="stylesheet" href="/css/styleInterface.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" />
+  <script defer type="module" src="src/app.js"></script>
+  <script defer src="/models/render.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+	<div id="header">Encabezado</div>
+</header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Contenedor para subir archivos -->
+    <section id="three-container">
+	<div class="viewer">
+		<div class="wrap">
+			<div class="dropzone">
+				<div class="placeholder">
+				</div>
+				<div class="upload-btn">
+					<input type="file" name="file-input[]" id="file-input" multiple="" />
+					<label>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="17"
+							viewBox="0 0 20 17"
+						>
+							<path
+								d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"
+							></path>
+						</svg>
+						<span></span>
+					</label>
+				</div>
+			</div>
+			<div class="spinner"></div>
+		</div>
+	</div>	      
+    </section>
+
+	<section id="imagen">
+		<img src="/images/cargando.gif" alt="Imagen PNG del crecimiento de la bacteria E. coli">
+		<br>
+		<p>Imagen PNG del crecimiento de la bacteria E.coli obtenida de la simulación 3D </p>
+		<div class="icons">
+		  <i class="fa fa-expand" title="Ampliar" onclick="ampliarElemento(this)"></i>
+		  <i class="fa fa-download" title="Descargar" onclick="descargarElemento(this)"></i>
+		</div>
+	  </section>
+	  <section id="video">
+		<video src="/images/carga.mp4" alt="Video mp4 del crecimiento de la bacteria E.coli" controls>
+		</video>
+	  <p>Video mp4 del crecimiento de la bacteria E.coli obtenida de la simulación 3D </p>
+	  <div class="icons">
+		<i class="fa fa-expand" title="Ampliar" onclick="ampliarElemento(this)"></i>
+		<i class="fa fa-download" title="Descargar" onclick="descargarElemento(this)"></i>
+	  </div> 
+	</section>
+	  <section id="simulación">
+		<label for="tiempo">TIEMPO EN HORAS</label>
+		<input 
+		type="range" 
+		id="tiempo" 
+		name="tiempo" 
+		min="1" 
+		max="24" 
+		value="1" 
+		oninput="actualizarValor(this.value)">
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const tiempoInput = document.getElementById('tiempo');
+				const valorTiempoSpan = document.getElementById('valor-tiempo');
+		
+				// Recupera el último valor almacenado o usa el valor por defecto '1'
+				const ultimoValor = localStorage.getItem('valorSeleccionado') || '1';
+				tiempoInput.value = ultimoValor;
+				valorTiempoSpan.textContent = `${ultimoValor} horas`; // Actualiza el span con el valor almacenado
+		
+				// Actualiza el valor dinámicamente cuando se cambie el input
+				tiempoInput.addEventListener('input', (event) => {
+					actualizarValor(event.target.value);
+				});
+		
+				// Guarda el valor seleccionado cuando se suelta el control deslizante
+				tiempoInput.addEventListener('change', (event) => {
+					localStorage.setItem('valorSeleccionado', event.target.value);
+				});
+			});
+		
+			// Función para actualizar el span con el nuevo valor
+			function actualizarValor(valor) {
+				document.getElementById('valor-tiempo').textContent = `${valor} horas`;
+			}
+		</script>
+		<span id="valor-tiempo">1 horas</span> <!-- Valor inicial por defecto -->
+		<br> <br>
+		<button id="generar-simulacion" onclick="generarSimulacion()">Generar Nueva Simulación</button>
+	 </section>
+	 <!-- Modal para ampliar imagen o video -->
+<div id="modal" class="modal">
+<span class="close" onclick="cerrarModal()">&times;</span>
+<div id="modal-contenido">
+  <!-- Aquí se cargará la imagen o video ampliado -->
+  <script src="/models/iconos.js"></script>
+</div>
+<div id="modal-actions">
+  <center>
+	<button id="btn-descargar" onclick="descargarContenido()">Descargar</button>
+	<button id="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
+  </center>
+  
+</div>
+</div>
+	</main>
+
+<!-- Footer -->
+<footer>
+  <div id="footer"></div>
+</footer>
+
+<script src="/models/tiempo.js"></script>
+</body>
+</html>

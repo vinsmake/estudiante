@@ -1,7 +1,5 @@
-import { LoaderUtils } from 'three';
 import { validateBytes } from 'gltf-validator';
-import { ValidatorToggle } from './components/validator-toggle';
-import { ValidatorReport } from './components/validator-report';
+import { LoaderUtils } from 'three';
 
 const SEVERITY_MAP = ['Errors', 'Warnings', 'Infos', 'Hints'];
 
@@ -94,8 +92,8 @@ export class Validator {
 		this.setResponse(response);
 
 		this.toggleEl.innerHTML = ValidatorToggle(report);
-		this.showToggle();
-		this.bindListeners();
+		//this.showToggle();
+		//this.bindListeners();
 
 		function groupMessages(report) {
 			const CODES = {
@@ -191,7 +189,7 @@ export class Validator {
 	hideToggle() {
 		this.toggleEl.classList.add('hidden');
 	}
-
+	/*
 	showLightbox() {
 		if (!this.report) return;
 		const tab = window.open('', '_blank');
@@ -206,6 +204,7 @@ export class Validator {
 			</style>
 			${ValidatorReport({ ...this.report, location })}`;
 	}
+			*/
 }
 
 function escapeHTML(unsafe) {

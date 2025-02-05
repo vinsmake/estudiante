@@ -1,4 +1,5 @@
 import {
+	ACESFilmicToneMapping,
 	AmbientLight,
 	AnimationMixer,
 	AxesHelper,
@@ -8,6 +9,7 @@ import {
 	DirectionalLight,
 	GridHelper,
 	HemisphereLight,
+	LinearToneMapping,
 	LoaderUtils,
 	LoadingManager,
 	PMREMGenerator,
@@ -15,20 +17,17 @@ import {
 	PointsMaterial,
 	REVISION,
 	Scene,
-	SkeletonHelper,
 	Vector3,
 	WebGLRenderer,
-	LinearToneMapping,
-	ACESFilmicToneMapping,
 } from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import Stats from 'three/addons/libs/stats.module.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
-import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
-import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 import { GUI } from 'dat.gui';
 
@@ -444,10 +443,6 @@ export class Viewer {
 	}
 
 	updateDisplay() {
-		if (this.skeletonHelpers.length) {
-			this.skeletonHelpers.forEach((helper) => this.scene.remove(helper));
-		}
-
 		traverseMaterials(this.content, (material) => {
 			material.wireframe = this.state.wireframe;
 
@@ -531,8 +526,6 @@ export class Viewer {
 		autoRotateCtrl.onChange(() => this.updateDisplay());
 		const wireframeCtrl = dispFolder.add(this.state, 'wireframe');
 		wireframeCtrl.onChange(() => this.updateDisplay());
-		const skeletonCtrl = dispFolder.add(this.state, 'skeleton');
-		skeletonCtrl.onChange(() => this.updateDisplay());
 		const gridCtrl = dispFolder.add(this.state, 'grid');
 		gridCtrl.onChange(() => this.updateDisplay());
 		dispFolder.add(this.controls, 'screenSpacePanning');
