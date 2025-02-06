@@ -1,15 +1,4 @@
 @charset "UTF-8";
-/*!
-* Start Bootstrap - Small Business v5.0.6 (https://startbootstrap.com/template/small-business)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-small-business/blob/master/LICENSE)
-*/
-/*!
- * Bootstrap  v5.2.3 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -10894,4 +10883,21 @@ textarea.form-control-lg {
 
 .enlaces:hover::after {
   opacity: 1; /* Muestra el tooltip al pasar el cursor por encima */
+}
+
+.card-body1 {
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido */
+  text-align: center;
+}
+
+.card-body1 video,
+.card-body1 img {
+  max-width: 100%; /* Se ajusta al ancho del card-body */
+  height: auto; /* Mantiene la proporción */
+  display: block;
 }

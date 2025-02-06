@@ -1,31 +1,15 @@
-/* Estilos generales */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #ffffff;
-}
-
-
 main {
   display: grid;
-  grid-template-columns: 4fr 2fr; /* Dos columnas */
+  grid-template-columns: auto; /* Dos columnas */
   grid-template-rows: auto auto auto; /* Tres filas */
-  gap: 20px;
-  padding: 20px;
 }
-
-
-
-/* Contenedor principal de la sección */
 /* Contenedor principal de la sección */
 #three-container {
   grid-column: 1 / 2; /* Primera columna */
-  grid-row: 1 / 4; /* Ocupa las tres filas */
-  border: 3px solid #32ef28;
+  grid-row: 1 / 2; /* Ocupa las tres filas */
+  border: 3px solid #2db74d;
   background-color: #252525; /* Fondo más oscuro para mayor contraste */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-weight: bold;
@@ -174,97 +158,6 @@ main {
   height: 100%; /* Canvas ocupa todo el alto del contenedor */
 }
 
-/* Sección de imagen */
-#imagen {
-  grid-column: 2 / 3; /* Segunda columna */
-  grid-row: 1 / 2; /* Primera fila */
-  text-align: left; /* Alinea el contenido a la izquierda */
-  border: 1px solid lightgray;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between; /* Espacio entre imagen y los íconos */
-  align-items: center; /* Centra verticalmente los elementos */
-}
-
-#imagen img {
-  max-width: 100%;
-  height: 120px;
-  margin-right: 10px; /* Espacio entre la imagen y los íconos */
-}
-
-.icons {
-  display: flex;
-  flex-direction: column; /* Coloca los íconos en columna */
-  justify-content: center;
-  align-items: center;
-}
-
-.icons i {
-  font-size: 20px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-/* Sección de video */
-#video {
-  grid-column: 2 / 3; /* Segunda columna */
-  grid-row: 2 / 3; /* Segunda fila */
-  text-align: left; /* Alinea el contenido a la izquierda */
-  border: 1px solid lightgray;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between; /* Espacio entre video y los íconos */
-  align-items: center; /* Centra verticalmente los elementos */
-}
-
-#video video {
-  max-width: 100%;
-  height: 120px;
-  margin-right: 10px; /* Espacio entre el video y los íconos */
-}
-
-
-/* Íconos */
-.icons i:hover {
-  color: #32ef28; /* Cambia el color de los íconos al pasar el mouse */
-}
-
-  
-  /* Sección de simulación */
-  #simulación {
-    border: 1px solid lightgray;
-    grid-column: 2 / 3; /* Segunda columna */
-    grid-row: 3 / 4; /* Tercera fila */
-    text-align: center;
-    padding: 10px;
-  }
-  
-  #simulación label {
-    font-size: 14px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  #simulación input[type="range"] {
-    width: 100%;
-    margin: 10px 0;
-  }
-  
-  #simulación button {
-    background-color: #32ef28;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size:larger;
-    border-radius: 5px;
-  }
-  
-  #simulación button:hover {
-    background-color: #218838;
-  }
-
 /* Estilo para el modal */
 .modal {
   display: none; /* Inicialmente está oculto */
@@ -323,52 +216,3 @@ main {
   background-color: #d32f2f; /* Rojo oscuro */
 }
 
-
-/* Responsividad */
-@media (max-width: 1024px) {
-  main {
-      grid-template-columns: 1fr; /* Una columna en tablets */
-  }
-
-  #three-container {
-      height: auto;
-      padding: 10px;
-  }
-
-  #imagen, #video, #simulación {
-      grid-column: 1 / 2; /* Ajustar a una sola columna */
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-      padding: 10px;
-  }
-
-  #three-container {
-      font-size: 10px;
-  }
-
-  #modal-contenido {
-      width: 95%;
-  }
-}
-
-@media (max-width: 480px) {
-  main {
-      gap: 10px;
-  }
-
-  #three-container {
-      height: auto;
-      font-size: 9px;
-  }
-
-  #imagen img, #video video {
-      height: auto;
-  }
-
-  .icons i {
-      font-size: 16px;
-  }
-}

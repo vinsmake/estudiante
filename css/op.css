@@ -1,0 +1,11 @@
+main {
+    display: grid;
+    grid-template-columns: auto; /* Dos columnas */
+    grid-template-rows: auto auto auto; /* Tres filas */
+  }
+  /* Contenedor principal de la sección */
+  #three-container {
+    grid-column: 1 / 2; /* Primera columna */
+    grid-row: 1 / 2; /* Ocupa las tres filas */
+    border: 3px solid #2db74d;
+}
