@@ -310,7 +310,7 @@ export class Viewer {
 	printGraph(node) {
 		console.group(' <' + node.type + '> ' + node.name);
 		node.children.forEach((child) => this.printGraph(child));
-		console.groupEnd();
+		//console.groupEnd();
 	}
 
 	/**
