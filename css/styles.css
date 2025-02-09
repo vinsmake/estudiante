@@ -3652,6 +3652,11 @@ textarea.form-control-lg {
   isolation: isolate;
   border-color: var(--bs-nav-tabs-link-hover-border-color);
 }
+
+ .nav-link[onclick]:hover, .nav-link[onclick]:focus {
+  cursor: pointer;
+}
+
 .nav-tabs .nav-link.disabled, .nav-tabs .nav-link:disabled {
   color: var(--bs-nav-link-disabled-color);
   background-color: transparent;
