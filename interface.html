@@ -98,7 +98,7 @@
 		<div class="card-footer align-items-center"><a id="btn-descargar" class="btn btn-primary btn-sm" href="#">Descargar</a> <a class="btn btn-primary btn-sm" href="#!">Ampliar</a></div>
 	</div>
 
-		</div>
+</div>
 		<div class="row gx-4 gx-lg-5">
 			<div class="col-md-4 mb-5">
 				<div class="card h-100">
@@ -107,10 +107,7 @@
 						<div class="contenedor">
 							<img src="" id="imagenSimulacion" alt="Imagen de simulación" class="img-fluid">
 							<div class="controles">
-								<button class="boton" onclick="zoomIn()">🔍 +</button>
-								<button class="boton" onclick="zoomOut()">🔍 -</button>
 								<button class="boton" onclick="toggleFullscreen()">⛶</button>
-								<button class="boton" onclick="rotate()">↻</button>
 								<button class="boton" onclick="downloadImage()">⬇</button>
 							</div>
 						</div>
@@ -119,24 +116,7 @@
 							let scale = 1;
 							let rotation = 0;
 							const img = document.getElementById('imagenSimulacion');
-					
-							function zoomIn() {
-								scale += 0.1;
-								img.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
-							}
-					
-							function zoomOut() {
-								if (scale > 0.5) {
-									scale -= 0.1;
-									img.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
-								}
-							}
-					
-							function rotate() {
-								rotation += 90;
-								img.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
-							}
-					
+						
 							function toggleFullscreen() {
 								if (img.requestFullscreen) {
 									img.requestFullscreen();
@@ -157,7 +137,6 @@
 							}
 						</script>
 					</div>
-					<div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Descargar</a> <a class="btn btn-primary btn-sm" href="#!">Ampliar</a></div>
 				</div>
 			</div>
 			<div class="col-md-4 mb-5">
@@ -166,7 +145,6 @@
 						<h2 class="card-title">Video de simulación de crecimiento</h2>
 						<video src="" id="videoSimulacion" alt="Video mp4 del crecimiento de la bacteria E.coli" controls>
 						</div>
-					<div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Descargar</a> <a class="btn btn-primary btn-sm" href="#!">Ampliar</a></div>
 				</div>
 			</div>
 			<div class="col-md-4 mb-5">
@@ -183,27 +161,12 @@
 								<span id="hora-final">24 h</span>
 							</div>
 							<center><p id="valor-tiempo">Tiempo seleccionado: 12 h</p></center>
+							<center><a class="btn btn-primary"  onclick="generarSimulacion()">Generar simulación</a></center>
 						</div>
 					</div>
-					<div class="card-footer"><center></center><a class="btn btn-primary"  onclick="generarSimulacion()">Generar simulación</a></center>
 					</div>
 				</div>
 			</div>
-		</div>
-		</div>
-			 <!-- Modal para ampliar imagen o video -->
-		<div id="modal" class="modal">
-		<span class="close" onclick="cerrarModal()">&times;</span>
-		<div id="modal-contenido">
-		  <!-- Aquí se cargará la imagen o video ampliado -->
-		  <script src="/models/iconos.js"></script>
-		</div>
-		<div id="modal-actions">
-		  <center>
-			<button id="btn-descargar" onclick="descargarContenido()">Descargar</button>
-			<button id="btn-cerrar" onclick="cerrarModal()">Cerrar</button>
-		  </center>
-		  
 		</div>
 		</div>
 	</div>

@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <title>${localStorage.getItem("horaSimulacion") + "h.glb"}</title>
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/3d.css" />
+  <link rel="icon" href="./images/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" />
   <script defer type="module" src="src/app.js"></script>
