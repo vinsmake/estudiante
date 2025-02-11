@@ -54,12 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			</div>
 			<div class="spinner"></div>
 		</div>
-	</div>	      
-	</section>
-
-		<div class="card h-100">
-		<div class="card-footer align-items-center"><a class="btn btn-primary btn-sm" href="#!">Descargar Modelo 3D</a></div>
-	</div>
 </main>
 
 <script src="/models/tiempo.js"></script>
@@ -104,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Botón de "Descargar"
-    document.querySelector(".btn[href='#!']").addEventListener("click", function () {
+    document.getElementById("btn-descargar").addEventListener("click", function () {
         // Obtener el nombre del archivo desde localStorage
         const fileName = localStorage.getItem("horaSimulacion")+"h.glb";
         
@@ -115,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Crear la URL de descarga (ajusta la ruta según la ubicación real de tus archivos)
         const filePath = `/models/${fileName}`;
-        alert(filePath);
 
         // Crear un enlace temporal para la descarga
         const link = document.createElement("a");

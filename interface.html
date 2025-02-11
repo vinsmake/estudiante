@@ -8,6 +8,35 @@
   <link rel="canonical" href="https://gltf-viewer.donmccurdy.com/" />
   <link rel="icon" href="images/logo.png" type="image/png">
   <title>Crecimiento bacteria E. coli</title>
+  <style>
+	.contenedor {
+		position: relative;
+		display: inline-block;
+	}
+	.img-fluid {
+		max-width: 100%;
+		transition: transform 0.3s ease;
+	}
+	.controles {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		gap: 10px;
+		background: rgba(0, 0, 0, 0.6);
+		padding: 5px;
+		border-radius: 8px;
+	}
+	.boton {
+		background: white;
+		border: none;
+		padding: 5px 10px;
+		cursor: pointer;
+		font-size: 14px;
+		border-radius: 5px;
+	}
+</style>
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/3d.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -66,7 +95,7 @@
 	</section>
 
 		<div class="card h-100">
-		<div class="card-footer align-items-center"><a class="btn btn-primary btn-sm" href="#!">Descargar</a> <a class="btn btn-primary btn-sm" href="#!">Ampliar</a></div>
+		<div class="card-footer align-items-center"><a id="btn-descargar" class="btn btn-primary btn-sm" href="#">Descargar</a> <a class="btn btn-primary btn-sm" href="#!">Ampliar</a></div>
 	</div>
 
 		</div>
@@ -75,7 +104,58 @@
 				<div class="card h-100">
 					<div class="card-body1">
 						<h2 class="card-title">Imagen final de simulación</h2>
-						<img src="" id="imagenSimulacion" alt="Imagen de simulación" class="img-fluid">
+						<div class="contenedor">
+							<img src="" id="imagenSimulacion" alt="Imagen de simulación" class="img-fluid">
+							<div class="controles">
+								<button class="boton" onclick="zoomIn()">🔍 +</button>
+								<button class="boton" onclick="zoomOut()">🔍 -</button>
+								<button class="boton" onclick="toggleFullscreen()">⛶</button>
+								<button class="boton" onclick="rotate()">↻</button>
+								<button class="boton" onclick="downloadImage()">⬇</button>
+							</div>
+						</div>
+					
+						<script>
+							let scale = 1;
+							let rotation = 0;
+							const img = document.getElementById('imagenSimulacion');
+					
+							function zoomIn() {
+								scale += 0.1;
+								img.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+							}
+					
+							function zoomOut() {
+								if (scale > 0.5) {
+									scale -= 0.1;
+									img.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+								}
+							}
+					
+							function rotate() {
+								rotation += 90;
+								img.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+							}
+					
+							function toggleFullscreen() {
+								if (img.requestFullscreen) {
+									img.requestFullscreen();
+								} else if (img.webkitRequestFullscreen) { 
+									img.webkitRequestFullscreen();
+								} else if (img.msRequestFullscreen) { 
+									img.msRequestFullscreen();
+								}
+							}
+					
+							function downloadImage() {
+								const link = document.createElement('a');
+								link.href = img.src;
+								link.download = localStorage.getItem("horaSimulacion")+'h.jpg';
+								document.body.appendChild(link);
+								link.click();
+								document.body.removeChild(link);
+							}
+						</script>
 					</div>
 					<div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Descargar</a> <a class="btn btn-primary btn-sm" href="#!">Ampliar</a></div>
 				</div>
