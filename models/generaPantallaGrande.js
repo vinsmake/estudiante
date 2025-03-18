@@ -125,30 +125,30 @@ document.addEventListener("DOMContentLoaded", function () {
     let imagen = document.getElementById("imagenSimulacion");
     let estado = parseInt(localStorage.getItem("horaSimulacion"));
     switch (estado) {
-        case 1:  imagen.src = "/models/1h.png";  break;
-        case 2:  imagen.src = "/models/2h.png";  break;
-        case 3:  imagen.src = "/models/3h.png";  break;
-        case 4:  imagen.src = "/models/4h.png";  break;
-        case 5:  imagen.src = "/models/5h.png";  break;
-        case 6:  imagen.src = "/models/6h.png";  break;
-        case 7:  imagen.src = "/models/7h.png";  break;
-        case 8:  imagen.src = "/models/8h.png";  break;
-        case 9:  imagen.src = "/models/9h.png";  break;
-        case 10: imagen.src = "/models/10h.png"; break;
-        case 11: imagen.src = "/models/11h.png"; break;
-        case 12: imagen.src = "/models/12h.png"; break;
-        case 13: imagen.src = "/models/13h.png"; break;
-        case 14: imagen.src = "/models/14h.png"; break;
-        case 15: imagen.src = "/models/15h.png"; break;
-        case 16: imagen.src = "/models/16h.png"; break;
-        case 17: imagen.src = "/models/17h.png"; break;
-        case 18: imagen.src = "/models/18h.png"; break;
-        case 19: imagen.src = "/models/19h.png"; break;
-        case 20: imagen.src = "/models/20h.png"; break;
-        case 21: imagen.src = "/models/21h.png"; break;
-        case 22: imagen.src = "/models/22h.png"; break;
-        case 23: imagen.src = "/models/23h.png"; break;
-        case 24: imagen.src = "/models/24h.png"; break;
+        case 1:  imagen.src = "./models/1h.png";  break;
+        case 2:  imagen.src = "./models/2h.png";  break;
+        case 3:  imagen.src = "./models/3h.png";  break;
+        case 4:  imagen.src = "./models/4h.png";  break;
+        case 5:  imagen.src = "./models/5h.png";  break;
+        case 6:  imagen.src = "./models/6h.png";  break;
+        case 7:  imagen.src = "./models/7h.png";  break;
+        case 8:  imagen.src = "./models/8h.png";  break;
+        case 9:  imagen.src = "./models/9h.png";  break;
+        case 10: imagen.src = "./models/10h.png"; break;
+        case 11: imagen.src = "./models/11h.png"; break;
+        case 12: imagen.src = "./models/12h.png"; break;
+        case 13: imagen.src = "./models/13h.png"; break;
+        case 14: imagen.src = "./models/14h.png"; break;
+        case 15: imagen.src = "./models/15h.png"; break;
+        case 16: imagen.src = "./models/16h.png"; break;
+        case 17: imagen.src = "./models/17h.png"; break;
+        case 18: imagen.src = "./models/18h.png"; break;
+        case 19: imagen.src = "./models/19h.png"; break;
+        case 20: imagen.src = "./models/20h.png"; break;
+        case 21: imagen.src = "./models/21h.png"; break;
+        case 22: imagen.src = "./models/22h.png"; break;
+        case 23: imagen.src = "./models/23h.png"; break;
+        case 24: imagen.src = "./models/24h.png"; break;
         default:
             alert("No se cargó correctamente la imagen de la simulación");
             break;
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let video = document.getElementById("videoSimulacion");
     
     if (estado >= 1 && estado <= 24) {
-        video.src = `/models/${estado}h.mp4`;
+        video.src = `./models/${estado}h.mp4`;
     } else {
         alert("No se cargó correctamente el video de la simulación");
     }
