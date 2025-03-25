@@ -155,9 +155,42 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let video = document.getElementById("videoSimulacion");
+
+    let youtubeLinks = {
+        1: "7BCFYzbv3vo",
+        2: "By6IXCE8d4w",
+        3: "Vc29BVr_cQQ",
+        4: "zjXRKZ5Dtpg",
+        5: "8BHnyd6rTh4",
+        6: "iMi2Cszty-Q",
+        7: "2IBzfTqf3ew",
+        8: "Fr7jHzdUB-k",
+        9: "hCoayjZ6WME",
+        10: "IXetWa7vuUc",
+        11: "h4qACvlJZ0c",
+        12: "Zg_M0c83Hbc",
+        13: "dvEsheyK6og",
+        14: "ta8ihF__k_4",
+        15: "cwgF5UZChTo",
+        16: "dXP1zR98_Ko",
+        17: "PAicSxcPR0g",
+        18: "x5MF2_8yFaE",
+        19: "yBt7qo_z3nw",
+        20: "Z5fx_0w6k-A",
+        21: "Q-t09FLGw3w",
+        22: "KkxEMrP0JEE",
+        23: "q5PvjIgk6sY",
+        24: "uw-izpn9uhs"
+    };
+    
     
     if (estado >= 1 && estado <= 24) {
-        video.src = `./models/${estado}h.mp4`;
+        let videoId = youtubeLinks[estado];
+        if (videoId) {
+            video.src = `https://www.youtube.com/embed/${videoId}`;
+        } else {
+            alert("No se encontró el video en YouTube para este estado");
+        }
     } else {
         alert("No se cargó correctamente el video de la simulación");
     }
