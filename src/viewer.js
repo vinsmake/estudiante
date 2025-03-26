@@ -19,7 +19,6 @@ import {
 	Vector3,
 	WebGLRenderer
 } from 'three';
-
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
@@ -28,6 +27,10 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
+
+import { GUI } from 'dat.gui';
+
+import { environments } from './environments.js';
 
 const DEFAULT_CAMERA = '[default]';
 
