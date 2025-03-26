@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Escribe el contenido en la nueva ventana con los estilos necesarios
         nuevaVentana.document.write(`
-            <!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
