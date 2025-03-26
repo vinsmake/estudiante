@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </main>
 
 <script src="./tiempo.js"></script>
-<script src="./src/generaPantallaGrande.js"></script>
+<script src="./generaPantallaGrande.js"></script>
 </body>
 </html>
 
