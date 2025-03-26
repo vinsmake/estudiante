@@ -2,28 +2,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const rango = document.getElementById("customRange3");
     const valorGuardado = localStorage.getItem("horaSimulacion");
 
-    // Si hay un valor guardado, actualizar el input range
     if (valorGuardado) {
         rango.value = valorGuardado;
-        actualizarValor(valorGuardado); // También actualiza el texto mostrado
+        window.actualizarValor(valorGuardado);
     }
 });
 
-// Función para actualizar el valor del rango en tiempo real
-function actualizarValor() {
-    horaSimulacion = document.getElementById("customRange3").value;
+window.actualizarValor = function () {
+    const horaSimulacion = document.getElementById("customRange3").value;
     document.getElementById('valor-tiempo').textContent = `Tiempo seleccionado: ${horaSimulacion} h`;
 }
 
-
-// Función para manejar el clic en el botón
-function generarSimulacion() {
+window.generarSimulacion = function () {
     const tiempo = document.getElementById('customRange3').value;
     localStorage.setItem("horaSimulacion", tiempo);
-    window.location.href = "interface.html"; // Redirige a la página interface.html
+    window.location.href = "interface.html";
 }
 
-function regresarIndex(){
+window.regresarIndex = function () {
     localStorage.setItem("horaSimulacion", 1);
     window.location.href = "index.html";
 }
