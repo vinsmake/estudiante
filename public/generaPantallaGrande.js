@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Crear la URL de descarga (ajusta la ruta según la ubicación real de tus archivos)
-        const filePath = `/models/${fileName}`;
+        const filePath = `./models/${fileName}`;
 
         // Crear un enlace temporal para la descarga
         const link = document.createElement("a");
@@ -156,38 +156,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let video = document.getElementById("videoSimulacion");
 
-    let youtubeLinks = {
-        1: "7BCFYzbv3vo",
-        2: "By6IXCE8d4w",
-        3: "Vc29BVr_cQQ",
-        4: "zjXRKZ5Dtpg",
-        5: "8BHnyd6rTh4",
-        6: "iMi2Cszty-Q",
-        7: "2IBzfTqf3ew",
-        8: "Fr7jHzdUB-k",
-        9: "hCoayjZ6WME",
-        10: "IXetWa7vuUc",
-        11: "h4qACvlJZ0c",
-        12: "Zg_M0c83Hbc",
-        13: "dvEsheyK6og",
-        14: "ta8ihF__k_4",
-        15: "cwgF5UZChTo",
-        16: "dXP1zR98_Ko",
-        17: "PAicSxcPR0g",
-        18: "x5MF2_8yFaE",
-        19: "yBt7qo_z3nw",
-        20: "Z5fx_0w6k-A",
-        21: "Q-t09FLGw3w",
-        22: "KkxEMrP0JEE",
-        23: "q5PvjIgk6sY",
-        24: "uw-izpn9uhs"
+    let driveLinks = {
+        1: "1-dUCZSY_pUYYP7_Jyj27_qufEqV5VKos",
+        2: "1V7hqhbTPYote_RZzu5j7Lc84jo1sX-24",
+        3: "1Zp1L8UjERPn18hhYh1EEzuzv35PKPcac",
+        4: "1HXzqk3001DIYU6ZCAP6P21dqlP2Zc1dC",
+        5: "106o0xdJQlpKVBIhzkoBXl_VqSdPwmApd",
+        6: "18F8BnhYzXdANnjGO25ZG-2KxwLnwcW1l",
+        7: "1zGpviAqe_YEItO59JPQROd0yGqaPnSgR",
+        8: "1GEgU2gn2hmjev7wqKbgfO2mCYYAnWc52",
+        9: "1tKz83lFvaq_0aqbrw2vdBoU_lbVOO2Iz",
+        10: "16bxulV-sIIjhJWkjZf0tVsq3vaiMd14X",
+        11: "1m6J5r6QtMhcUQXPNeD5n_EwfRDzP9ys5",
+        12: "12QClatoyZcJihwNYa1QgMZ8V1G5eFTXb",
+        13: "1Z41htAlSAyUCU_2_qhDOpmETcxnz3SwZ",
+        14: "1WvLqeJj1s28Tewr2_Vy5LAZFbW20EB65",
+        15: "1Ih0oaJbYNdsukCnxddtHSSwt1WYKkX1-",
+        16: "1C0hzp91eXM7ZAzoAIdtF8zmRus8Q4NNL",
+        17: "1bd8wnUh6EcudSIH5M6jld2BZmYYw3Bqu",
+        18: "1LxxtqgEuQbbjU5DkwZZpiCzwfkjhSGZS",
+        19: "1EVZn2NuaOxmWbkZedmHcT72PgoiBZLwG",
+        20: "1Nom6DYrPYguQrfF4A-F_-SnhNmdHxodD",
+        21: "1D1BnUV3y8PKEGn35He33OokVzrBXYPxE",
+        22: "1JepA2QMFMAz6w9btX6fRBC8KR8TKPKqY",
+        23: "1BhrpVL8zaR5yxk6p44l9DAYUmbv_o66c",
+        24: "1NoPusJHT0UeNd9aoTZmAE9IAN0Z5dnLc"
     };
     
     
     if (estado >= 1 && estado <= 24) {
-        let videoId = youtubeLinks[estado];
+        let videoId = driveLinks[estado];
         if (videoId) {
-            video.src = `https://www.youtube.com/embed/${videoId}`;
+            video.src = `https://drive.google.com/file/d/${videoId}/preview`;
         } else {
             alert("No se encontró el video en YouTube para este estado");
         }
